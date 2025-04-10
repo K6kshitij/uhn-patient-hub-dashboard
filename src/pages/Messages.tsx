@@ -16,9 +16,7 @@ const MessagesPage = () => {
       title: "Medical or Appointment Question",
       description: "You have a non-urgent medical question that doesn't require immediate response. You can only send a message to a health care team that you have seen in the past year. Do not send a message about a new symptom—call your health care team directly.",
       ctaText: "Start",
-      color: "bg-amber-50 hover:bg-amber-100",
-      borderColor: "border-amber-200",
-      iconColor: "text-amber-500"
+      iconColor: "text-uhn-accent"
     },
     {
       id: "support",
@@ -26,9 +24,7 @@ const MessagesPage = () => {
       title: "Contact myUHN Support",
       description: "You have a question about login, proxy access, or other non-medical concern.",
       ctaText: "Contact Support",
-      color: "bg-blue-50 hover:bg-blue-100",
-      borderColor: "border-blue-200", 
-      iconColor: "text-blue-500"
+      iconColor: "text-uhn-accent"
     },
     {
       id: "share",
@@ -36,9 +32,7 @@ const MessagesPage = () => {
       title: "Share Your Record",
       description: "Share your record with a loved one or request an official copy of your record.",
       ctaText: "Share Now",
-      color: "bg-orange-50 hover:bg-orange-100",
-      borderColor: "border-orange-200",
-      iconColor: "text-orange-500"
+      iconColor: "text-uhn-accent"
     },
     {
       id: "team",
@@ -46,9 +40,7 @@ const MessagesPage = () => {
       title: "Contact Princess Margaret Care Team",
       description: "Send a question, request, or concern to your care team at Princess Margaret Cancer Centre.",
       ctaText: "Message Team",
-      color: "bg-indigo-50 hover:bg-indigo-100", 
-      borderColor: "border-indigo-200",
-      iconColor: "text-indigo-500"
+      iconColor: "text-uhn-accent"
     }
   ];
 
@@ -63,18 +55,18 @@ const MessagesPage = () => {
         {messageOptions.map((option) => (
           <Card 
             key={option.id}
-            className={`transition-all border-2 ${option.borderColor} ${option.color} hover:shadow-md cursor-pointer`}
+            className="border border-uhn-border bg-white shadow-sm transition-all hover:shadow-md"
           >
             <CardHeader className="pb-2">
               <div className="flex items-start gap-3">
-                <div className={`rounded-full p-2.5 ${option.color} ${option.iconColor}`}>
+                <div className={`rounded-full p-2.5 bg-uhn-bg ${option.iconColor}`}>
                   <option.icon className="h-5 w-5" />
                 </div>
-                <CardTitle className="text-xl">{option.title}</CardTitle>
+                <CardTitle className="text-xl text-uhn-text">{option.title}</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-uhn-text min-h-[60px]">
+              <CardDescription className="text-uhn-text-secondary min-h-[60px]">
                 {option.description}
               </CardDescription>
             </CardContent>
