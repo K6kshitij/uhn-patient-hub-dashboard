@@ -43,7 +43,7 @@ const MessagesPage = () => {
       description: "Send a question, request, or concern to your care team at Princess Margaret Cancer Centre.",
       ctaText: "Message Team",
       iconColor: "text-uhn-accent",
-      route: "/contact-care-team"
+      route: "/pm-request"
     }
   ];
 
