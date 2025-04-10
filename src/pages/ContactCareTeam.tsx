@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Calendar } from "@/components/ui/calendar";
@@ -32,7 +31,6 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 
-// Sample doctor data - in a real app, this would come from an API
 const doctors = [
   { id: "1", name: "Dr. Sarah Johnson", specialty: "Oncology" },
   { id: "2", name: "Dr. Michael Chen", specialty: "Hematology" },
@@ -40,7 +38,6 @@ const doctors = [
   { id: "4", name: "Dr. David Kim", specialty: "Surgical Oncology" },
 ];
 
-// Form validation schema
 const formSchema = z.object({
   doctor: z.string({
     required_error: "Please select a doctor",
@@ -83,9 +80,7 @@ const ContactCareTeam = () => {
 
   const onSubmit = (data: FormValues) => {
     console.log("Form submitted:", data);
-    // In a real app, submit data to API
-    // For now, just log it and redirect back
-    setTimeout(() => navigate("/messages"), 500);
+    navigate("/contact-confirmation");
   };
 
   return (
