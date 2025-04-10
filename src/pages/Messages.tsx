@@ -5,9 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Bandage, HelpCircle, Heart, Mail } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useNavigate } from "react-router-dom";
 
 const MessagesPage = () => {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
   
   const messageOptions = [
     {
@@ -40,9 +42,17 @@ const MessagesPage = () => {
       title: "Contact Princess Margaret Care Team",
       description: "Send a question, request, or concern to your care team at Princess Margaret Cancer Centre.",
       ctaText: "Message Team",
-      iconColor: "text-uhn-accent"
+      iconColor: "text-uhn-accent",
+      route: "/contact-care-team"
     }
   ];
+
+  const handleCardClick = (optionId: string) => {
+    const option = messageOptions.find(opt => opt.id === optionId);
+    if (option && option.route) {
+      navigate(option.route);
+    }
+  };
 
   return (
     <div className="max-w-5xl mx-auto">
@@ -73,6 +83,7 @@ const MessagesPage = () => {
             <CardFooter>
               <Button 
                 className="w-full justify-between bg-uhn-accent hover:bg-uhn-accent/90 text-white"
+                onClick={() => handleCardClick(option.id)}
               >
                 {option.ctaText}
                 <ArrowRight className="h-4 w-4" />
