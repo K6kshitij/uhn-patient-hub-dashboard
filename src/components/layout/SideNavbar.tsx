@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Calendar, Home, MessageSquare, FileText, Pill, Settings, ChevronLeft, ChevronRight } from "lucide-react";
+import { Calendar, Home, MessageSquare, FileText, Pill, Settings, PanelLeft, PanelRight } from "lucide-react";
 
 type NavItem = {
   title: string;
@@ -70,7 +70,7 @@ export default function SideNavbar() {
           className="ml-auto p-2 text-uhn-text-secondary hover:text-uhn-text rounded-full hover:bg-uhn-bg"
           aria-label={collapsed ? "Expand Sidebar" : "Collapse Sidebar"}
         >
-          {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
+          {collapsed ? <PanelRight size={18} /> : <PanelLeft size={18} />}
         </button>
       </div>
 
