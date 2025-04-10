@@ -1,4 +1,5 @@
 
+import * as React from "react"
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible"
 import { PanelLeft, PanelRight } from "lucide-react"
 import { cn } from "@/lib/utils"
