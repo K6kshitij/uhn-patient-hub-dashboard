@@ -259,7 +259,7 @@ const ContactCareTeam = () => {
                 className="bg-uhn-accent hover:bg-uhn-accent/90 text-white"
                 disabled={!form.formState.isValid}
               >
-                Continue
+                Submit
               </Button>
             </div>
           </form>
