@@ -191,7 +191,6 @@ const ContactCareTeam = () => {
                         </div>
                       </div>
                       <div>
-                        <Bell className="h-6 w-6 text-yellow-300" />
                       </div>
                     </div>
                   </CardContent>
