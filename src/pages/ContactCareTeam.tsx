@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Calendar } from "@/components/ui/calendar";
@@ -359,20 +358,12 @@ const ContactCareTeam = () => {
               </div>
             </div>
 
-            <div className="pt-4 flex space-x-3">
+            <div className="pt-4">
               <Button 
                 type="submit"
-                className="bg-[#95b46a] hover:bg-[#7d9956] text-white"
+                className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
               >
                 Submit
-              </Button>
-              <Button 
-                type="button"
-                variant="outline"
-                className="border-blue-400 text-blue-500"
-                onClick={() => navigate("/messages")}
-              >
-                Finish later
               </Button>
             </div>
           </form>
