@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Calendar } from "@/components/ui/calendar";
@@ -34,7 +33,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { format } from "date-fns";
-import { Bell, CalendarIcon, ChevronLeft, MapPin, PenLine, Phone, Mail } from "lucide-react";
+import { CalendarIcon, ChevronLeft, MapPin, PenLine, Phone, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -47,7 +46,6 @@ const doctors = [
   { id: "4", name: "Dr. David Kim", specialty: "Surgical Oncology" },
 ];
 
-// Mock user data for prefilling the form
 const userData = {
   doctor: "2", // Dr. Michael Chen
   fullName: "John Smith",
@@ -339,24 +337,27 @@ const ContactCareTeam = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-lg font-medium">Your Message</h2>
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Please enter your message</FormLabel>
-                    <FormControl>
-                      <Textarea 
-                        placeholder="Enter your message here" 
-                        className="min-h-[150px]" 
-                        {...field} 
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <h2 className="text-lg font-medium">Please describe your message to the care team</h2>
+              <div className="border-b border-uhn-border pb-4">
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-red-500">Please enter your message</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Enter your message here" 
+                          className="min-h-[150px]" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <p className="text-red-500 text-sm mt-2">Message must be at least 10 characters</p>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
             </div>
 
             <div className="pt-4 flex space-x-3">
