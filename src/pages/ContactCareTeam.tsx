@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Calendar } from "@/components/ui/calendar";
@@ -135,7 +136,7 @@ const ContactCareTeam = () => {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="space-y-4">
               <h2 className="text-lg font-medium">Select Your Doctor</h2>
-              <div className="border-b border-uhn-border pb-4">
+              <div className="pb-4">
                 <FormField
                   control={form.control}
                   name="doctor"
@@ -337,7 +338,7 @@ const ContactCareTeam = () => {
 
             <div className="space-y-4">
               <h2 className="text-lg font-medium">Please describe your message to the care team</h2>
-              <div className="border-b border-uhn-border pb-4">
+              <div className="pb-4">
                 <FormField
                   control={form.control}
                   name="message"
