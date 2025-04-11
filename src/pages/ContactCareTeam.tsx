@@ -167,12 +167,12 @@ const ContactCareTeam = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-lg font-medium text-blue-500">Verify Your Personal Information</h2>
+              <h2 className="text-lg font-medium text-uhn-text">Verify Your Personal Information</h2>
               
               {!isEditing ? (
                 <Card className="bg-white border border-uhn-border shadow-sm">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-lg text-blue-400">Contact Information</CardTitle>
+                    <CardTitle className="text-lg text-uhn-text">Contact Information</CardTitle>
                   </CardHeader>
                   <CardContent className="pt-2 pb-2">
                     <div className="flex justify-between">
@@ -198,7 +198,7 @@ const ContactCareTeam = () => {
                     <button 
                       type="button"
                       onClick={toggleEdit}
-                      className="text-blue-500 flex items-center text-sm font-medium"
+                      className="text-uhn-text flex items-center text-sm font-medium"
                     >
                       <PenLine className="h-4 w-4 mr-1" />
                       Edit
