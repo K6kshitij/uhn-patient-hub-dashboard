@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Calendar } from "@/components/ui/calendar";
@@ -343,7 +344,7 @@ const ContactCareTeam = () => {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-red-500">Please enter your message</FormLabel>
+                      <FormLabel>Please enter your message</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Enter your message here" 
@@ -351,7 +352,6 @@ const ContactCareTeam = () => {
                           {...field} 
                         />
                       </FormControl>
-                      <p className="text-red-500 text-sm mt-2">Message must be at least 10 characters</p>
                       <FormMessage />
                     </FormItem>
                   )}
