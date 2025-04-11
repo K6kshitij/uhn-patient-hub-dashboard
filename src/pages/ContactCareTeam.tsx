@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Calendar } from "@/components/ui/calendar";
@@ -38,6 +39,17 @@ const doctors = [
   { id: "4", name: "Dr. David Kim", specialty: "Surgical Oncology" },
 ];
 
+// Mock user data for prefilling the form
+const userData = {
+  doctor: "2", // Dr. Michael Chen
+  fullName: "John Smith",
+  dateOfBirth: new Date("1985-06-15"),
+  phoneNumber: "416-555-1234",
+  email: "john.smith@example.com",
+  confirmEmail: "john.smith@example.com",
+  healthCard: "4321-567-890-AB",
+};
+
 const formSchema = z.object({
   doctor: z.string({
     required_error: "Please select a doctor",
@@ -70,11 +82,13 @@ const ContactCareTeam = () => {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fullName: "",
-      phoneNumber: "",
-      email: "",
-      confirmEmail: "",
-      healthCard: "",
+      doctor: userData.doctor,
+      fullName: userData.fullName,
+      dateOfBirth: userData.dateOfBirth,
+      phoneNumber: userData.phoneNumber,
+      email: userData.email,
+      confirmEmail: userData.confirmEmail,
+      healthCard: userData.healthCard,
     },
   });
 
@@ -257,7 +271,6 @@ const ContactCareTeam = () => {
               <Button 
                 type="submit"
                 className="bg-uhn-accent hover:bg-uhn-accent/90 text-white"
-                disabled={!form.formState.isValid}
               >
                 Submit
               </Button>
