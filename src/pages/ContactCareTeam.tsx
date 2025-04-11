@@ -5,6 +5,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { 
   Select, 
   SelectContent, 
@@ -25,8 +26,15 @@ import {
   PopoverContent,
   PopoverTrigger 
 } from "@/components/ui/popover";
+import { 
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { format } from "date-fns";
-import { CalendarIcon, ChevronLeft } from "lucide-react";
+import { Bell, CalendarIcon, ChevronLeft, MapPin, PenLine, Phone, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -48,6 +56,7 @@ const userData = {
   email: "john.smith@example.com",
   confirmEmail: "john.smith@example.com",
   healthCard: "4321-567-890-AB",
+  address: "",
 };
 
 const formSchema = z.object({
@@ -70,6 +79,9 @@ const formSchema = z.object({
     message: "Please enter a valid email address",
   }),
   healthCard: z.string().optional(),
+  message: z.string().min(10, {
+    message: "Message must be at least 10 characters",
+  }).optional(),
 }).refine((data) => data.email === data.confirmEmail, {
   message: "Email addresses must match",
   path: ["confirmEmail"],
@@ -79,6 +91,8 @@ type FormValues = z.infer<typeof formSchema>;
 
 const ContactCareTeam = () => {
   const navigate = useNavigate();
+  const [isEditing, setIsEditing] = useState(false);
+  
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -89,12 +103,17 @@ const ContactCareTeam = () => {
       email: userData.email,
       confirmEmail: userData.confirmEmail,
       healthCard: userData.healthCard,
+      message: "",
     },
   });
 
   const onSubmit = (data: FormValues) => {
     console.log("Form submitted:", data);
     navigate("/contact-confirmation");
+  };
+
+  const toggleEdit = () => {
+    setIsEditing(!isEditing);
   };
 
   return (
@@ -150,129 +169,210 @@ const ContactCareTeam = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-lg font-medium">Your Personal Information</h2>
-              <div className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="fullName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Full Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Enter your full name" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="dateOfBirth"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-col">
-                      <FormLabel>Date of Birth</FormLabel>
-                      <Popover>
-                        <PopoverTrigger asChild>
+              <h2 className="text-lg font-medium text-blue-500">Verify Your Personal Information</h2>
+              
+              {!isEditing ? (
+                <Card className="bg-white border border-uhn-border shadow-sm">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg text-blue-400">Contact Information</CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-2 pb-2">
+                    <div className="flex justify-between">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <MapPin className="h-4 w-4 text-gray-500" />
+                          <span className="text-gray-500">{userData.address ? userData.address : "Address not entered"}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Phone className="h-4 w-4 text-gray-500" />
+                          <span className="text-gray-500">{userData.phoneNumber}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Mail className="h-4 w-4 text-gray-500" />
+                          <span className="text-gray-500">{userData.email || "Email not entered"}</span>
+                        </div>
+                      </div>
+                      <div>
+                        <Bell className="h-6 w-6 text-yellow-300" />
+                      </div>
+                    </div>
+                  </CardContent>
+                  <div className="border-t border-gray-100 px-6 py-3">
+                    <button 
+                      type="button"
+                      onClick={toggleEdit}
+                      className="text-blue-500 flex items-center text-sm font-medium"
+                    >
+                      <PenLine className="h-4 w-4 mr-1" />
+                      Edit
+                    </button>
+                  </div>
+                </Card>
+              ) : (
+                <div className="bg-white border border-uhn-border rounded-lg p-6 shadow-sm space-y-6">
+                  <div className="space-y-4">
+                    <FormField
+                      control={form.control}
+                      name="fullName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Full Name</FormLabel>
                           <FormControl>
-                            <Button
-                              variant="outline"
-                              className={cn(
-                                "w-full justify-start text-left font-normal",
-                                !field.value && "text-muted-foreground"
-                              )}
-                            >
-                              {field.value ? (
-                                format(field.value, "PPP")
-                              ) : (
-                                <span>Select date of birth</span>
-                              )}
-                              <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                            </Button>
+                            <Input placeholder="Enter your full name" {...field} />
                           </FormControl>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0" align="start">
-                          <Calendar
-                            mode="single"
-                            selected={field.value}
-                            onSelect={field.onChange}
-                            disabled={(date) =>
-                              date > new Date() || date < new Date("1900-01-01")
-                            }
-                            initialFocus
-                            className={cn("p-3 pointer-events-auto")}
-                          />
-                        </PopoverContent>
-                      </Popover>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                <FormField
-                  control={form.control}
-                  name="phoneNumber"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Phone Number</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Enter your phone number" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                    <FormField
+                      control={form.control}
+                      name="dateOfBirth"
+                      render={({ field }) => (
+                        <FormItem className="flex flex-col">
+                          <FormLabel>Date of Birth</FormLabel>
+                          <Popover>
+                            <PopoverTrigger asChild>
+                              <FormControl>
+                                <Button
+                                  variant="outline"
+                                  className={cn(
+                                    "w-full justify-start text-left font-normal",
+                                    !field.value && "text-muted-foreground"
+                                  )}
+                                >
+                                  {field.value ? (
+                                    format(field.value, "PPP")
+                                  ) : (
+                                    <span>Select date of birth</span>
+                                  )}
+                                  <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                                </Button>
+                              </FormControl>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-auto p-0" align="start">
+                              <Calendar
+                                mode="single"
+                                selected={field.value}
+                                onSelect={field.onChange}
+                                disabled={(date) =>
+                                  date > new Date() || date < new Date("1900-01-01")
+                                }
+                                initialFocus
+                                className={cn("p-3 pointer-events-auto")}
+                              />
+                            </PopoverContent>
+                          </Popover>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email Address</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Enter your email address" type="email" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                    <FormField
+                      control={form.control}
+                      name="phoneNumber"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Phone Number</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Enter your phone number" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                <FormField
-                  control={form.control}
-                  name="confirmEmail"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Confirm Email Address</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Confirm your email address" type="email" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Email Address</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Enter your email address" type="email" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                <FormField
-                  control={form.control}
-                  name="healthCard"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Health Card Number (Optional)</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Enter your health card number (optional)" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
+                    <FormField
+                      control={form.control}
+                      name="confirmEmail"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Confirm Email Address</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Confirm your email address" type="email" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="healthCard"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Health Card Number (Optional)</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Enter your health card number (optional)" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <div className="flex justify-end">
+                    <Button 
+                      type="button" 
+                      variant="outline" 
+                      onClick={toggleEdit}
+                      className="text-blue-500 border-blue-200 hover:border-blue-400"
+                    >
+                      Done
+                    </Button>
+                  </div>
+                </div>
+              )}
             </div>
 
-            <div className="pt-4 flex justify-end">
+            <div className="space-y-4">
+              <h2 className="text-lg font-medium">Your Message</h2>
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Please enter your message</FormLabel>
+                    <FormControl>
+                      <Textarea 
+                        placeholder="Enter your message here" 
+                        className="min-h-[150px]" 
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="pt-4 flex space-x-3">
               <Button 
                 type="submit"
-                className="bg-uhn-accent hover:bg-uhn-accent/90 text-white"
+                className="bg-[#95b46a] hover:bg-[#7d9956] text-white"
               >
                 Submit
+              </Button>
+              <Button 
+                type="button"
+                variant="outline"
+                className="border-blue-400 text-blue-500"
+                onClick={() => navigate("/messages")}
+              >
+                Finish later
               </Button>
             </div>
           </form>
