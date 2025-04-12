@@ -176,7 +176,8 @@ const RequestStatus = () => {
             onClick={() => navigate('/messages')}
             className="bg-uhn-accent hover:bg-uhn-accent/90 text-white"
           >
-            Return to Messages
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Messages
           </Button>
           <p className="text-sm text-uhn-text-secondary">
             If your concern is urgent, please contact the clinic directly at (416) 555-0123.
