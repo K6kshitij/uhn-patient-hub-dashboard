@@ -86,6 +86,14 @@ const RequestStatus = () => {
         
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-semibold text-uhn-text">Request Status</h1>
+          <Button 
+            variant="outline" 
+            className="flex items-center gap-2" 
+            onClick={() => navigate('/messages')}
+          >
+            <ArrowLeft size={16} />
+            Back to Messages
+          </Button>
         </div>
       </div>
 
