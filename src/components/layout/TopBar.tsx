@@ -13,8 +13,14 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 export default function TopBar() {
   return (
-    <div className="h-16 px-6 flex items-center justify-end border-b border-uhn-border bg-white">
-      <div className="flex items-center gap-4">
+    <div className="h-16 px-6 flex items-center justify-between border-b border-uhn-border bg-white">
+      <div className="flex items-center">
+        <h1 className="text-xl font-semibold text-primary">
+          <span className="text-black">my</span>
+          <span className="text-blue-600">UHN</span>
+        </h1>
+      </div>
+      <div className="flex items-center">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="flex items-center gap-2 pr-1 pl-3 text-uhn-text">
