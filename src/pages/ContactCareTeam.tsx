@@ -362,7 +362,7 @@ const ContactCareTeam = () => {
             <div className="pt-4">
               <Button 
                 type="submit"
-                className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
+                className="bg-uhn-accent hover:bg-uhn-accent/90 text-white"
               >
                 Submit
               </Button>
