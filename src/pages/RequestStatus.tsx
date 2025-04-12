@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, CheckCircle, Eye, Clock, MessageSquare } from "lucide-react";
@@ -180,7 +179,7 @@ const RequestStatus = () => {
           </div>
         </CardContent>
         
-        <CardFooter className="border-t border-uhn-border flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <CardFooter className="border-t border-uhn-border flex flex-col sm:flex-row items-start sm:items-center gap-6 py-6">
           <Button 
             onClick={() => navigate('/messages')}
             className="bg-uhn-accent hover:bg-uhn-accent/90 text-white"
