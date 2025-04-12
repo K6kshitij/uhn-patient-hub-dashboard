@@ -15,7 +15,7 @@ export default function TopBar() {
   return (
     <div className="h-16 px-6 flex items-center justify-between border-b border-uhn-border bg-white">
       <div className="text-2xl font-bold text-uhn-text">
-        my<span className="text-blue-600">UHN</span>
+        {/* Logo removed from here */}
       </div>
       <div className="flex items-center gap-4">
         <DropdownMenu>
