@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Calendar, Home, MessageSquare, FileText, Pill, Settings, PanelLeft, PanelRight } from "lucide-react";
+import { Calendar, Home, MessageSquare, FileText, Pill, Settings, PanelLeft, PanelRight, LogOut } from "lucide-react";
 
 type NavItem = {
   title: string;
@@ -10,7 +10,7 @@ type NavItem = {
   icon: React.ElementType;
 };
 
-const navItems: NavItem[] = [
+const mainNavItems: NavItem[] = [
   {
     title: "Dashboard",
     href: "/",
@@ -36,10 +36,18 @@ const navItems: NavItem[] = [
     href: "/medications",
     icon: Pill,
   },
+];
+
+const bottomNavItems: NavItem[] = [
   {
     title: "Settings",
     href: "/settings",
     icon: Settings,
+  },
+  {
+    title: "Logout",
+    href: "/logout",
+    icon: LogOut,
   },
 ];
 
@@ -76,7 +84,7 @@ export default function SideNavbar() {
 
       <nav className="flex-1 py-4 px-2">
         <ul className="space-y-1">
-          {navItems.map((item) => (
+          {mainNavItems.map((item) => (
             <li key={item.href}>
               <Link
                 to={item.href}
@@ -95,6 +103,28 @@ export default function SideNavbar() {
           ))}
         </ul>
       </nav>
+
+      <div className="mt-auto py-4 px-2 border-t border-uhn-border">
+        <ul className="space-y-1">
+          {bottomNavItems.map((item) => (
+            <li key={item.href}>
+              <Link
+                to={item.href}
+                className={cn(
+                  "flex items-center gap-3 px-3 py-3 rounded-md transition-colors",
+                  "hover:bg-uhn-bg",
+                  location.pathname === item.href
+                    ? "bg-uhn-bg text-uhn-text font-medium"
+                    : "text-uhn-text-secondary"
+                )}
+              >
+                <item.icon size={20} />
+                {!collapsed && <span>{item.title}</span>}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
