@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Bandage, HelpCircle, Heart, Mail } from "lucide-react";
+import { ArrowRight, Bandage, HelpCircle, Heart, Mail, Eye } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useNavigate } from "react-router-dom";
 
@@ -44,6 +44,15 @@ const MessagesPage = () => {
       ctaText: "Message Team",
       iconColor: "text-uhn-accent",
       route: "/pm-request"
+    },
+    {
+      id: "status",
+      icon: Eye,
+      title: "View Request Status",
+      description: "Track the status of your previously submitted requests to the Princess Margaret Care Team.",
+      ctaText: "View Status",
+      iconColor: "text-uhn-accent",
+      route: "/request-status"
     }
   ];
 

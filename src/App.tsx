@@ -11,6 +11,7 @@ import MessagesPage from "./pages/Messages";
 import PMRequestOptions from "./pages/PMRequestOptions";
 import ContactCareTeam from "./pages/ContactCareTeam";
 import ContactConfirmation from "./pages/ContactConfirmation";
+import RequestStatus from "./pages/RequestStatus";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/pm-request" element={<DashboardLayout><PMRequestOptions /></DashboardLayout>} />
           <Route path="/contact-care-team" element={<DashboardLayout><ContactCareTeam /></DashboardLayout>} />
           <Route path="/contact-confirmation" element={<DashboardLayout><ContactConfirmation /></DashboardLayout>} />
+          <Route path="/request-status" element={<DashboardLayout><RequestStatus /></DashboardLayout>} />
           <Route path="/visits" element={<DashboardLayout><div className="p-4">Visits Content Coming Soon</div></DashboardLayout>} />
           <Route path="/test-results" element={<DashboardLayout><div className="p-4">Test Results Content Coming Soon</div></DashboardLayout>} />
           <Route path="/medications" element={<DashboardLayout><div className="p-4">Medications Content Coming Soon</div></DashboardLayout>} />
