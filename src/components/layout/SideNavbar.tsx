@@ -66,14 +66,14 @@ export default function SideNavbar() {
         <Link to="/" className="flex items-center gap-2">
           {collapsed ? (
             <img 
-              src="/lovable-uploads/da38b698-3fd6-4fc4-a643-538465492e99.png" 
+              src="/lovable-uploads/f9dd6b3d-c73e-4ebf-8782-d43a4c46db62.png" 
               alt="myUHN logo" 
               className="h-8 w-8 object-contain"
             />
           ) : (
             <div className="flex items-center">
               <img 
-                src="/lovable-uploads/da38b698-3fd6-4fc4-a643-538465492e99.png" 
+                src="/lovable-uploads/f9dd6b3d-c73e-4ebf-8782-d43a4c46db62.png" 
                 alt="myUHN logo" 
                 className="h-10 w-auto"
               />
