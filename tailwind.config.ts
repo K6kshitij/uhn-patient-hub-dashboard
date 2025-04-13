@@ -63,7 +63,7 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				uhn: {
-					bg: '#F5F5F5',
+					bg: '#F6F8FE',
 					card: '#FFFFFF',
 					text: '#2E2E2E',
 					'text-secondary': '#6C6C6C',
