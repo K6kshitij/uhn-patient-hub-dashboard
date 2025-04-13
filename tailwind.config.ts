@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -70,6 +69,7 @@ export default {
 					'text-secondary': '#6C6C6C',
 					accent: '#4A4A4A',
 					border: '#D9D9D9',
+					primary: '#2051F4'
 				}
 			},
 			borderRadius: {
