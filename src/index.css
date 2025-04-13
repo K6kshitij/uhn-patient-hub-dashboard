@@ -82,7 +82,7 @@
   }
 
   body {
-    @apply bg-white text-uhn-text; // Changed from bg-uhn-bg to bg-white
+    @apply bg-white text-uhn-text;
   }
 }
 
