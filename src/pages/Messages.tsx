@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -90,10 +89,7 @@ const MessagesPage = () => {
               </CardDescription>
             </CardContent>
             <CardFooter>
-              <Button 
-                className="w-full justify-between bg-uhn-accent hover:bg-uhn-accent/90 text-white"
-                onClick={() => handleCardClick(option.id)}
-              >
+              <Button className="w-full justify-between">
                 {option.ctaText}
                 <ArrowRight className="h-4 w-4" />
               </Button>

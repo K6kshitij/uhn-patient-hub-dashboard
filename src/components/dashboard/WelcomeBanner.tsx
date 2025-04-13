@@ -18,9 +18,7 @@ export default function WelcomeBanner() {
             when you can contact your clinic.
           </p>
           <div className="flex items-center gap-3">
-            <Button className="bg-uhn-accent hover:bg-uhn-accent/90 text-white">
-              Resources for Patients
-            </Button>
+            <Button>Resources for Patients</Button>
             <Button variant="outline" className="border-uhn-border text-uhn-text-secondary hover:bg-uhn-bg">
               Dismiss
             </Button>
