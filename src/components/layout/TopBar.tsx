@@ -1,5 +1,5 @@
 
-import { LogOut, User, Settings } from "lucide-react";
+import { Bell, LogOut, User, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { cn } from "@/lib/utils";
 
 export default function TopBar() {
   return (
@@ -18,12 +19,21 @@ export default function TopBar() {
         {/* Logo removed from here */}
       </div>
       <div className="flex items-center gap-4">
+        <Button variant="ghost" size="icon" className="text-uhn-text-secondary">
+          <Bell className="h-5 w-5" />
+        </Button>
+
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="flex items-center gap-2 pr-1 pl-3 text-uhn-text">
-              <span>Barry</span>
-              <Avatar className="h-8 w-8 border border-uhn-border">
-                <AvatarFallback className="bg-blue-100 text-blue-600">B</AvatarFallback>
+            <Button variant="ghost" className="flex items-center gap-2 px-2 text-uhn-text hover:bg-transparent">
+              <div className="flex flex-col items-start text-sm">
+                <span className="font-medium">My account</span>
+                <span className="text-xs text-muted-foreground">sample.mobile@gmail.com</span>
+              </div>
+              <Avatar className="h-8 w-8 border border-uhn-border bg-gray-100">
+                <AvatarFallback className="text-gray-500">
+                  <User className="h-4 w-4" />
+                </AvatarFallback>
               </Avatar>
             </Button>
           </DropdownMenuTrigger>
