@@ -171,15 +171,15 @@ const RequestStatus = () => {
           </div>
         </CardContent>
         
-        <CardFooter className="border-t border-uhn-border flex flex-col sm:flex-row items-start sm:items-center gap-6 py-6">
+        <CardFooter className="border-t border-uhn-border flex flex-col sm:flex-row items-center justify-between py-6">
           <Button 
             onClick={() => navigate('/messages')}
-            className="bg-uhn-accent hover:bg-uhn-accent/90 text-white"
+            className="bg-uhn-accent hover:bg-uhn-accent/90 text-white w-full sm:w-auto"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Messages
           </Button>
-          <p className="text-sm text-uhn-text-secondary">
+          <p className="text-sm text-uhn-text-secondary mt-4 sm:mt-0">
             If your concern is urgent, please contact the clinic directly at (416) 555-0123.
           </p>
         </CardFooter>
