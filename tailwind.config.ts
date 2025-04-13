@@ -70,7 +70,7 @@ export default {
 					accent: '#4A4A4A',
 					border: '#D9D9D9',
 					primary: '#2051F4',
-					'active-bg': '#0EA5E9',
+					'active-bg': '#F6F8FE',
 					'active-text': 'white'
 				}
 			},
