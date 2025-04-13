@@ -46,8 +46,8 @@ export default function SideNavbar() {
         <Link to="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-[#F6F8FE] flex items-center justify-center">
             <img 
-              src="/lovable-uploads/12d435aa-efbc-41a4-853c-fb0304c871db.png" 
-              alt="myUHN Logo" 
+              src="/lovable-uploads/4fcb000d-e977-47ed-9b68-7200e1dec43e.png" 
+              alt="UHN Logo" 
               className="w-6 h-6 object-contain"
             />
           </div>
