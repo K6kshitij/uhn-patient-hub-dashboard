@@ -19,8 +19,9 @@ export default function TopBar() {
         {/* Logo removed from here */}
       </div>
       <div className="flex items-center gap-4">
-        <Button variant="ghost" size="icon" className="text-uhn-text-secondary">
+        <Button variant="ghost" size="icon" className="relative text-uhn-text-secondary">
           <Bell className="h-5 w-5" />
+          <span className="absolute top-1 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
         </Button>
 
         <DropdownMenu>
@@ -30,9 +31,9 @@ export default function TopBar() {
                 <span className="font-medium">My account</span>
                 <span className="text-xs text-muted-foreground">sample.mobile@gmail.com</span>
               </div>
-              <Avatar className="h-8 w-8 border border-uhn-border bg-gray-100">
-                <AvatarFallback className="text-gray-500">
-                  <User className="h-4 w-4" />
+              <Avatar className="h-8 w-8 border border-uhn-border bg-[#1a365d] text-white">
+                <AvatarFallback className="bg-[#1a365d] text-white text-sm font-medium">
+                  AS
                 </AvatarFallback>
               </Avatar>
             </Button>
