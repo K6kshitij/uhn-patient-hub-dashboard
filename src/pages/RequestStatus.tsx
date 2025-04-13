@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, CheckCircle, Eye, Clock, MessageSquare } from "lucide-react";
@@ -133,9 +134,9 @@ const RequestStatus = () => {
                 
                 return (
                   <div key={step.id} className="relative pl-14">
-                    {/* Step indicator */}
+                    {/* Step indicator with improved icon styling */}
                     <div 
-                      className={`absolute left-0 w-12 h-12 rounded-full flex items-center justify-center ${
+                      className={`absolute left-0 w-12 h-12 rounded-full flex items-center justify-center shadow-sm ${
                         status === "complete" 
                           ? "bg-[#2ECC71] text-white" 
                           : status === "active" 
@@ -143,7 +144,11 @@ const RequestStatus = () => {
                             : "bg-[#D9D9D9] text-uhn-text-secondary"
                       }`}
                     >
-                      <step.icon size={22} />
+                      <step.icon 
+                        size={20} 
+                        strokeWidth={2.5}
+                        className="drop-shadow-sm"
+                      />
                     </div>
                     
                     {/* Step content */}
