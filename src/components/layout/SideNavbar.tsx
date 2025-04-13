@@ -1,8 +1,7 @@
 
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Calendar, Home, MessageSquare, FileText, Pill, Settings, PanelLeft, PanelRight, LogOut } from "lucide-react";
+import { Home, Calendar, MessageSquare, FileText, Pill } from "lucide-react";
 
 type NavItem = {
   title: string;
@@ -12,7 +11,7 @@ type NavItem = {
 
 const mainNavItems: NavItem[] = [
   {
-    title: "Dashboard",
+    title: "Home",
     href: "/",
     icon: Home,
   },
@@ -38,93 +37,51 @@ const mainNavItems: NavItem[] = [
   },
 ];
 
-const bottomNavItems: NavItem[] = [
-  {
-    title: "Settings",
-    href: "/settings",
-    icon: Settings,
-  },
-  {
-    title: "Logout",
-    href: "/logout",
-    icon: LogOut,
-  },
-];
-
 export default function SideNavbar() {
-  const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
 
   return (
-    <div
-      className={cn(
-        "flex flex-col h-screen bg-white border-r border-uhn-border transition-all duration-300 ease-in-out",
-        collapsed ? "w-20" : "w-64"
-      )}
-    >
+    <div className="flex flex-col h-screen w-64 bg-white border-r border-uhn-border">
       <div className="flex items-center h-16 px-4 border-b border-uhn-border">
         <Link to="/" className="flex items-center gap-2">
-          <span className={cn("text-2xl font-bold text-uhn-text", collapsed ? "hidden" : "inline-block")}>
+          <div className="w-8 h-8 rounded-full bg-[#F6F8FE] flex items-center justify-center">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#7591F2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 6V12L16 14" stroke="#7591F2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <span className="text-xl font-medium">
             my<span className="text-blue-600">UHN</span>
           </span>
-          {collapsed && (
-            <span className="text-2xl font-bold text-blue-600">
-              U
-            </span>
-          )}
         </Link>
-        <button
-          onClick={() => setCollapsed(!collapsed)}
-          className="ml-auto p-2 text-uhn-text-secondary hover:text-uhn-text rounded-full hover:bg-uhn-bg"
-          aria-label={collapsed ? "Expand Sidebar" : "Collapse Sidebar"}
-        >
-          {collapsed ? <PanelRight size={18} /> : <PanelLeft size={18} />}
-        </button>
       </div>
 
-      <nav className="flex-1 py-4 px-4">
-        <ul className="space-y-2">
+      <nav className="flex-1 py-4 px-2">
+        <ul className="space-y-1">
           {mainNavItems.map((item) => (
             <li key={item.href}>
               <Link
                 to={item.href}
                 className={cn(
                   "flex items-center gap-3 px-3 py-2.5 rounded-md transition-colors",
-                  "hover:bg-uhn-bg",
                   location.pathname === item.href
-                    ? "bg-uhn-bg text-uhn-text font-medium"
-                    : "text-uhn-text-secondary"
+                    ? "bg-[#F6F8FE] text-blue-600 font-medium"
+                    : "text-gray-600 hover:bg-gray-50"
                 )}
+                aria-current={location.pathname === item.href ? "page" : undefined}
               >
-                <item.icon size={20} />
-                {!collapsed && <span>{item.title}</span>}
+                <item.icon 
+                  size={20} 
+                  className={cn(
+                    location.pathname === item.href ? "text-blue-600" : "text-gray-500"
+                  )} 
+                />
+                <span>{item.title}</span>
               </Link>
             </li>
           ))}
         </ul>
       </nav>
-
-      <div className="mt-auto py-4 px-4 border-t border-uhn-border">
-        <ul className="space-y-2">
-          {bottomNavItems.map((item) => (
-            <li key={item.href}>
-              <Link
-                to={item.href}
-                className={cn(
-                  "flex items-center gap-3 px-3 py-2.5 rounded-md transition-colors",
-                  "hover:bg-uhn-bg",
-                  location.pathname === item.href
-                    ? "bg-uhn-bg text-uhn-text font-medium"
-                    : "text-uhn-text-secondary"
-                )}
-              >
-                <item.icon size={20} />
-                {!collapsed && <span>{item.title}</span>}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
     </div>
   );
 }
