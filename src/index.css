@@ -82,7 +82,7 @@
   }
 
   body {
-    @apply bg-white text-uhn-text;
+    @apply bg-uhn-bg text-uhn-text;
   }
 }
 
