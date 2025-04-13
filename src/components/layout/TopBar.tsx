@@ -27,10 +27,6 @@ export default function TopBar() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="flex items-center gap-2 px-2 text-uhn-text hover:bg-transparent">
-              <div className="flex flex-col items-start text-sm">
-                <span className="font-medium">My account</span>
-                <span className="text-xs text-muted-foreground">sample.mobile@gmail.com</span>
-              </div>
               <Avatar className="h-8 w-8 border border-uhn-border bg-[#1a365d] text-white">
                 <AvatarFallback className="bg-[#1a365d] text-white text-sm font-medium">
                   AS
