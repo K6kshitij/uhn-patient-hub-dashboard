@@ -45,10 +45,11 @@ export default function SideNavbar() {
       <div className="flex items-center h-16 px-4 border-b border-uhn-border">
         <Link to="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-[#F6F8FE] flex items-center justify-center">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#7591F2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M12 6V12L16 14" stroke="#7591F2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img 
+              src="/lovable-uploads/4fcb000d-e977-47ed-9b68-7200e1dec43e.png" 
+              alt="UHN Logo" 
+              className="w-6 h-6 object-contain"
+            />
           </div>
           <span className="text-xl font-medium">
             my<span className="text-blue-600">UHN</span>
