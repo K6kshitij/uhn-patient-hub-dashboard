@@ -1,6 +1,6 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Bandage, HelpCircle, Heart, Mail, Eye } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -76,11 +76,11 @@ const MessagesPage = () => {
             className="border border-uhn-border bg-white shadow-sm transition-all hover:shadow-md"
           >
             <CardHeader className="pb-2">
-              <div className="flex items-start gap-3">
+              <div className="flex items-center gap-3">
                 <div className={`rounded-full p-2.5 bg-uhn-bg ${option.iconColor}`}>
                   <option.icon className="h-5 w-5" />
                 </div>
-                <CardTitle className="text-xl text-uhn-text">{option.title}</CardTitle>
+                <CardTitle className="text-xl text-uhn-text flex items-center">{option.title}</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
