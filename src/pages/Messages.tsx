@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,7 +9,6 @@ const MessagesPage = () => {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   
-  // Define the Contact Princess Margaret Care Team card separately
   const pmCareTeamCard = {
     id: "team",
     icon: Mail,
@@ -105,7 +103,6 @@ const MessagesPage = () => {
         ))}
       </div>
 
-      {/* Princess Margaret Care Team Card (Moved to Bottom) */}
       <Card 
         className="border border-uhn-border bg-white shadow-sm mt-6 transition-all hover:shadow-md"
         onClick={handlePMCardClick}
@@ -135,4 +132,3 @@ const MessagesPage = () => {
 };
 
 export default MessagesPage;
-
