@@ -2,10 +2,9 @@
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, AlertCircle, Calendar, FileText, HelpCircle } from "lucide-react";
+import { ArrowRight, AlertCircle, Calendar, FileText, HelpCircle, ChevronLeft } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useNavigate } from "react-router-dom";
-import { ChevronLeft } from "lucide-react";
 
 const PMRequestOptions = () => {
   const isMobile = useIsMobile();
@@ -70,30 +69,33 @@ const PMRequestOptions = () => {
             className="border border-uhn-border bg-white shadow-sm transition-all hover:shadow-md cursor-pointer"
             onClick={() => handleOptionSelect(option.id)}
           >
-            <CardContent className="pt-6">
-              <div className="flex items-start gap-3 mb-3">
-                <div className={`rounded-full p-2.5 bg-uhn-bg ${option.iconColor}`}>
+            <CardContent className="py-6 px-6">
+              <div className="flex items-start gap-4 mb-2">
+                <div className={`rounded-full p-2 bg-uhn-bg ${option.iconColor} flex-shrink-0`}>
                   <option.icon className="h-5 w-5" />
                 </div>
-                <CardTitle className="text-xl text-uhn-text mt-1">{option.title}</CardTitle>
+                <div className="flex-1">
+                  <CardTitle className="text-lg text-uhn-text mb-1">{option.title}</CardTitle>
+                  <CardDescription className="text-uhn-text-secondary text-sm">
+                    {option.description}
+                  </CardDescription>
+                </div>
+                <div className="flex-shrink-0 ml-2">
+                  <Button 
+                    variant="ghost" 
+                    size="icon"
+                    className="h-8 w-8 text-uhn-text-secondary hover:text-uhn-accent hover:bg-transparent"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleOptionSelect(option.id);
+                    }}
+                  >
+                    <ArrowRight className="h-4 w-4" />
+                    <span className="sr-only">Select {option.title}</span>
+                  </Button>
+                </div>
               </div>
-              <CardDescription className="text-uhn-text-secondary">
-                {option.description}
-              </CardDescription>
             </CardContent>
-            <CardFooter className="pt-0 pb-6">
-              <Button 
-                variant="ghost" 
-                className="ml-auto p-0 hover:bg-transparent hover:text-uhn-accent text-uhn-text-secondary"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleOptionSelect(option.id);
-                }}
-              >
-                <ArrowRight className="h-5 w-5" />
-                <span className="sr-only">Select {option.title}</span>
-              </Button>
-            </CardFooter>
           </Card>
         ))}
       </div>
