@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -94,9 +95,8 @@ const MessagesPage = () => {
               </CardDescription>
             </CardContent>
             <CardFooter>
-              <Button className="w-full justify-between">
+              <Button variant="default" className="w-full justify-start">
                 {option.ctaText}
-                <ArrowRight className="h-4 w-4" />
               </Button>
             </CardFooter>
           </Card>
@@ -123,9 +123,8 @@ const MessagesPage = () => {
             </CardDescription>
           </CardContent>
           <CardFooter>
-            <Button className="w-full justify-between">
+            <Button variant="default" className="w-full justify-start">
               {pmCareTeamCard.ctaText}
-              <ArrowRight className="h-4 w-4" />
             </Button>
           </CardFooter>
         </Card>
@@ -135,3 +134,4 @@ const MessagesPage = () => {
 };
 
 export default MessagesPage;
+
