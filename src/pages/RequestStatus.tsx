@@ -179,7 +179,7 @@ const RequestStatus = () => {
         <CardFooter className="border-t border-uhn-border flex flex-col sm:flex-row items-center justify-between py-6">
           <Button 
             onClick={() => navigate('/messages')}
-            className="bg-[#405AEB] hover:bg-[#405AEB]/90 text-white w-full sm:w-auto"
+            className="bg-[#405AEB] hover:bg-[#405AEB]/90 text-white px-6 py-2.5 h-auto w-full sm:w-auto"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Messages

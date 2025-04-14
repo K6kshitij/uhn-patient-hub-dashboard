@@ -11,13 +11,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-transparent text-[#405AEB] hover:underline", // Updated color to 405AEB
+        default: "bg-transparent text-[#405AEB] hover:underline",
         primary: "bg-uhn-primary text-white hover:bg-uhn-primary/90",
+        ghost: "bg-transparent hover:bg-secondary/80 text-uhn-text",
+        outline: "border border-input bg-transparent hover:bg-secondary/80 text-uhn-text",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-auto px-0 py-1",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
+        icon: "h-9 w-9 p-0",
       },
     },
     defaultVariants: {
