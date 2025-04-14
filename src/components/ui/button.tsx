@@ -11,7 +11,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-transparent text-uhn-primary hover:underline",
+        default: "bg-transparent text-[#405AEB] hover:underline", // Updated color to 405AEB
         primary: "bg-uhn-primary text-white hover:bg-uhn-primary/90",
       },
       size: {
@@ -51,4 +51,3 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button"
 
 export { Button, buttonVariants }
-
