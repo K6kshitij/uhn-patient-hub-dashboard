@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -104,31 +103,33 @@ const MessagesPage = () => {
         ))}
       </div>
 
-      <Card 
-        key={pmCareTeamCard.id}
-        className="border border-uhn-border bg-white shadow-sm mt-6 transition-all hover:shadow-md"
-        onClick={handlePMCardClick}
-      >
-        <CardHeader className="pb-2">
-          <div className="flex items-center gap-3">
-            <div className={`rounded-full p-2.5 bg-uhn-bg ${pmCareTeamCard.iconColor}`}>
-              <pmCareTeamCard.icon className="h-5 w-5" />
+      <div className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-6 mt-6`}>
+        <Card 
+          key={pmCareTeamCard.id}
+          className="border border-uhn-border bg-white shadow-sm transition-all hover:shadow-md"
+          onClick={handlePMCardClick}
+        >
+          <CardHeader className="pb-2">
+            <div className="flex items-center gap-3">
+              <div className={`rounded-full p-2.5 bg-uhn-bg ${pmCareTeamCard.iconColor}`}>
+                <pmCareTeamCard.icon className="h-5 w-5" />
+              </div>
+              <CardTitle className="text-xl text-uhn-text flex items-center">{pmCareTeamCard.title}</CardTitle>
             </div>
-            <CardTitle className="text-xl text-uhn-text flex items-center">{pmCareTeamCard.title}</CardTitle>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <CardDescription className="text-uhn-text-secondary min-h-[60px]">
-            {pmCareTeamCard.description}
-          </CardDescription>
-        </CardContent>
-        <CardFooter>
-          <Button className="w-full justify-between">
-            {pmCareTeamCard.ctaText}
-            <ArrowRight className="h-4 w-4" />
-          </Button>
-        </CardFooter>
-      </Card>
+          </CardHeader>
+          <CardContent>
+            <CardDescription className="text-uhn-text-secondary min-h-[60px]">
+              {pmCareTeamCard.description}
+            </CardDescription>
+          </CardContent>
+          <CardFooter>
+            <Button className="w-full justify-between">
+              {pmCareTeamCard.ctaText}
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </CardFooter>
+        </Card>
+      </div>
     </div>
   );
 };
