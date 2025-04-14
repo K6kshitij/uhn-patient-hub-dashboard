@@ -1,8 +1,7 @@
 
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardFooter, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, AlertCircle, Calendar, FileText, HelpCircle, ChevronLeft } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { ChevronLeft, AlertCircle, Calendar, FileText, HelpCircle, ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useNavigate } from "react-router-dom";
 
@@ -66,33 +65,22 @@ const PMRequestOptions = () => {
         {requestOptions.map((option) => (
           <Card 
             key={option.id}
-            className="border border-uhn-border bg-white shadow-sm transition-all hover:shadow-md cursor-pointer"
+            className="border border-gray-200 bg-white shadow-sm transition-all hover:shadow-md cursor-pointer"
             onClick={() => handleOptionSelect(option.id)}
           >
-            <CardContent className="py-6 px-6">
-              <div className="flex items-start gap-4 mb-2">
-                <div className={`rounded-full p-2 bg-uhn-bg ${option.iconColor} flex-shrink-0`}>
-                  <option.icon className="h-5 w-5" />
+            <CardContent className="p-6">
+              <div className="flex items-start gap-4 mb-3">
+                <div className="flex-shrink-0">
+                  <option.icon className={`h-5 w-5 ${option.iconColor}`} />
                 </div>
                 <div className="flex-1">
-                  <CardTitle className="text-lg text-uhn-text mb-1">{option.title}</CardTitle>
-                  <CardDescription className="text-uhn-text-secondary text-sm">
+                  <h3 className="text-base font-medium mb-1">{option.title}</h3>
+                  <p className="text-uhn-text-secondary text-sm">
                     {option.description}
-                  </CardDescription>
+                  </p>
                 </div>
-                <div className="flex-shrink-0 ml-2">
-                  <Button 
-                    variant="ghost" 
-                    size="icon"
-                    className="h-8 w-8 text-uhn-text-secondary hover:text-uhn-accent hover:bg-transparent"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleOptionSelect(option.id);
-                    }}
-                  >
-                    <ArrowRight className="h-4 w-4" />
-                    <span className="sr-only">Select {option.title}</span>
-                  </Button>
+                <div className="flex-shrink-0 ml-auto">
+                  <ArrowRight className="h-4 w-4 text-gray-400" />
                 </div>
               </div>
             </CardContent>
