@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Calendar } from "@/components/ui/calendar";
@@ -362,7 +361,7 @@ const ContactCareTeam = () => {
             <div className="pt-4">
               <Button 
                 type="submit"
-                className="bg-uhn-accent hover:bg-uhn-accent/90 text-white"
+                className="bg-[#405AEB] hover:bg-[#405AEB]/90 text-white"
               >
                 Submit
               </Button>
