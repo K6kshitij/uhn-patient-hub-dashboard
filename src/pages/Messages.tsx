@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -104,6 +105,7 @@ const MessagesPage = () => {
       </div>
 
       <Card 
+        key={pmCareTeamCard.id}
         className="border border-uhn-border bg-white shadow-sm mt-6 transition-all hover:shadow-md"
         onClick={handlePMCardClick}
       >
