@@ -64,21 +64,13 @@ export default function SideNavbar() {
     >
       <div className="flex items-center h-16 px-4 border-b border-gray-100">
         <Link to="/" className="flex items-center gap-2">
-          {collapsed ? (
-            <img 
-              src="/lovable-uploads/f9dd6b3d-c73e-4ebf-8782-d43a4c46db62.png" 
-              alt="myUHN logo" 
-              className="h-8 w-8 object-contain"
-            />
-          ) : (
-            <div className="flex items-center">
-              <img 
-                src="/lovable-uploads/f9dd6b3d-c73e-4ebf-8782-d43a4c46db62.png" 
-                alt="myUHN logo" 
-                className="h-10 w-auto"
-              />
-            </div>
-          )}
+          <img 
+            src="/lovable-uploads/f9dd6b3d-c73e-4ebf-8782-d43a4c46db62.png" 
+            alt="myUHN logo" 
+            className={cn("transition-all duration-300", 
+              collapsed ? "h-8 w-8 object-contain" : "h-10 w-auto"
+            )}
+          />
         </Link>
         <button
           onClick={() => setCollapsed(!collapsed)}
@@ -98,12 +90,13 @@ export default function SideNavbar() {
                 <Link
                   to={item.href}
                   className={cn(
-                    "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors",
+                    "flex items-center gap-3 rounded-lg transition-colors",
                     isActive 
                       ? "bg-blue-50 text-blue-600" 
                       : "text-gray-500 hover:bg-gray-50",
-                    collapsed && "justify-center"
+                    collapsed ? "justify-center px-0 py-2.5" : "px-3 py-2.5"
                   )}
+                  title={collapsed ? item.title : ""}
                 >
                   <item.icon size={20} strokeWidth={1.5} color={isActive ? "#4F46E5" : "#6B7280"} />
                   {!collapsed && <span>{item.title}</span>}
@@ -123,12 +116,13 @@ export default function SideNavbar() {
                 <Link
                   to={item.href}
                   className={cn(
-                    "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors",
+                    "flex items-center gap-3 rounded-lg transition-colors",
                     isActive 
                       ? "bg-blue-50 text-blue-600" 
                       : "text-gray-500 hover:bg-gray-50",
-                    collapsed && "justify-center"
+                    collapsed ? "justify-center px-0 py-2.5" : "px-3 py-2.5"
                   )}
+                  title={collapsed ? item.title : ""}
                 >
                   <item.icon size={20} strokeWidth={1.5} color={isActive ? "#4F46E5" : "#6B7280"} />
                   {!collapsed && <span>{item.title}</span>}
