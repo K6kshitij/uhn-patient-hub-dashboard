@@ -358,7 +358,7 @@ const ContactCareTeam = () => {
               </div>
             </div>
 
-            <div className="pt-6">
+            <div className="pt-4">
               <Button 
                 type="submit"
                 className="bg-[#405AEB] hover:bg-[#405AEB]/90 text-white px-8 py-2.5 text-base font-medium rounded-md min-w-[120px] h-auto"
