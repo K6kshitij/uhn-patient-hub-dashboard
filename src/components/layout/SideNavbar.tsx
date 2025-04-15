@@ -55,6 +55,12 @@ export default function SideNavbar() {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
 
+  // Enhanced active state check to also match nested routes
+  const isActive = (href: string) => {
+    return location.pathname === href || 
+           (href === "/messages" && location.pathname.startsWith("/messages"));
+  };
+
   return (
     <div
       className={cn(
@@ -84,21 +90,25 @@ export default function SideNavbar() {
       <nav className="flex-1 py-4">
         <ul className="space-y-1 px-3">
           {mainNavItems.map((item) => {
-            const isActive = location.pathname === item.href;
+            const active = isActive(item.href);
             return (
               <li key={item.href}>
                 <Link
                   to={item.href}
                   className={cn(
                     "flex items-center gap-3 rounded-lg transition-colors",
-                    isActive 
-                      ? "bg-blue-50 text-blue-600" 
+                    active 
+                      ? "bg-blue-50 text-blue-600 font-semibold" 
                       : "text-gray-500 hover:bg-gray-50",
                     collapsed ? "justify-center px-0 py-2.5" : "px-3 py-2.5"
                   )}
                   title={collapsed ? item.title : ""}
                 >
-                  <item.icon size={20} strokeWidth={1.5} color={isActive ? "#4F46E5" : "#6B7280"} />
+                  <item.icon 
+                    size={20} 
+                    strokeWidth={active ? 2.5 : 1.5} 
+                    color={active ? "#4F46E5" : "#6B7280"} 
+                  />
                   {!collapsed && <span>{item.title}</span>}
                 </Link>
               </li>
