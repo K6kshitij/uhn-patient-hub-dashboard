@@ -40,6 +40,7 @@ const ContactConfirmation = () => {
         <CardFooter className="flex justify-center pb-8">
           <Button 
             onClick={() => navigate("/messages")}
+            className="bg-[#405AEB] hover:bg-[#405AEB]/90"
           >
             Return to Messages
           </Button>
