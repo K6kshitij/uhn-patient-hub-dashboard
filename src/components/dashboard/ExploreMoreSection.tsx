@@ -1,3 +1,4 @@
+
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Lightbulb, Users, Globe, ChevronLeft, ChevronRight } from "lucide-react";
@@ -71,9 +72,11 @@ export default function ExploreMoreSection() {
                 index === activeIndex ? "block" : "hidden"
               )}
             >
-              <div className="flex gap-4 items-start">
-                <div>
-                  {card.icon}
+              <div className="flex gap-4 items-center"> {/* Changed from items-start to items-center */}
+                <div className="flex-shrink-0"> {/* Added flex-shrink-0 to prevent icon from growing */}
+                  {React.cloneElement(card.icon, { 
+                    className: "h-8 w-8" // Reduced icon size from h-10 w-10 to h-8 w-8
+                  })}
                 </div>
                 <div className="flex-1">
                   <h3 className="font-medium mb-2">{card.title}</h3>
