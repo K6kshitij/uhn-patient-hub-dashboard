@@ -79,7 +79,10 @@ export default function ExploreMoreSection() {
                 <div className="flex-1">
                   <h3 className="font-medium mb-2">{card.title}</h3>
                   <p className="text-sm text-uhn-text-secondary mb-4">{card.description}</p>
-                  <Button variant="outline" className="bg-uhn-accent hover:bg-uhn-accent/90 text-white border-none">
+                  <Button 
+                    variant="outline" 
+                    className="px-5 py-2.5 text-base font-semibold rounded-md bg-uhn-accent hover:bg-uhn-accent/90 text-white border-none"
+                  >
                     {card.action}
                   </Button>
                 </div>
@@ -120,3 +123,4 @@ export default function ExploreMoreSection() {
     </div>
   );
 }
+
