@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { CircleCheck } from "lucide-react";
+import { CircleCheck, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const ContactConfirmation = () => {
@@ -22,6 +22,14 @@ const ContactConfirmation = () => {
           <p className="text-[#2E2E2E] mb-4">
             Thank you for contacting the Princess Margaret Care Team. Your request has been successfully submitted and is being reviewed.
           </p>
+          
+          <div className="bg-blue-50 p-4 rounded-md flex items-start mb-4">
+            <Mail className="h-5 w-5 text-blue-500 mt-0.5 mr-2 flex-shrink-0" />
+            <p className="text-left text-blue-700">
+              <span className="font-medium">A confirmation email has been sent</span> to your email address. Please check your inbox for details about your request.
+            </p>
+          </div>
+          
           <p className="text-[#2E2E2E] mb-6">
             <span className="font-medium">📞 You will receive a phone call in response.</span> Please ensure your phone is nearby and answered if you are expecting a call from your care provider.
           </p>
