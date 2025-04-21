@@ -135,9 +135,9 @@ export const ContactInfoForm = ({ control, onDoneClick }: ContactInfoFormProps) 
       <div className="flex justify-end">
         <Button 
           type="button" 
-          variant="outline" 
+          variant="outline"
+          className="min-w-[96px] px-5 py-2 border-blue-500 text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors text-base shadow-sm"
           onClick={onDoneClick}
-          className="text-blue-500 border-blue-200 hover:border-blue-400"
         >
           Done
         </Button>
