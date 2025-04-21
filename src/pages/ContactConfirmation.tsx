@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { CircleCheck, Mail } from "lucide-react";
+import { CircleCheck, Mail, Phone } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const ContactConfirmation = () => {
@@ -30,17 +30,20 @@ const ContactConfirmation = () => {
             </p>
           </div>
           
-          <p className="text-[#2E2E2E] mb-6">
-            <span className="font-medium">📞 You will receive a phone call in response.</span> Please ensure your phone is nearby and answered if you are expecting a call from your care provider.
-          </p>
-          <p className="text-[#6C6C6C] text-sm italic">
+          <div className="flex items-start mb-6">
+            <Phone className="h-5 w-5 text-red-400 mt-0.5 mr-2 flex-shrink-0" />
+            <p className="text-left text-[#2E2E2E]">
+              <span className="font-medium">You will receive a phone call in response.</span> Please ensure your phone is nearby and answered if you are expecting a call from your care provider.
+            </p>
+          </div>
+          <p className="text-[#6C6C6C] text-sm italic mb-10">
             If your concern is urgent, contact the clinic directly.
           </p>
         </CardContent>
         <CardFooter className="flex justify-center pb-8">
           <Button 
             onClick={() => navigate("/messages")}
-            className="bg-[#405AEB] hover:bg-[#405AEB]/90"
+            className="bg-[#405AEB] hover:bg-[#405AEB]/90 text-white px-8 py-3 text-lg font-semibold rounded-xl min-w-[200px] mt-4 shadow-sm transition-all"
           >
             Return to Messages
           </Button>
