@@ -37,7 +37,7 @@ export const ContactInfoForm = ({ control, onDoneClick }: ContactInfoFormProps) 
           control={control}
           name="dateOfBirth"
           render={({ field }) => (
-            <FormItem className="flex flex-col">
+            <FormItem className="flex flex-col mt-6"> {/* Added margin top for spacing */}
               <FormLabel>Date of Birth</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
